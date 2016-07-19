@@ -1,6 +1,6 @@
 #include "SortedListP.h"
-#include <iostream>
-#include <stdlib.h>                 // EXIT_FAILURE
+//#include <iostream>
+//#include <stdlib.h>                 // EXIT_FAILURE
 using namespace std;
 
 /** Constructor, creates read-only size value.
@@ -14,6 +14,17 @@ using namespace std;
  */
 SortedListP::SortedListP() : size(_size){
     //TODO: SortedListP constructor
+    //this-> _size  = _size;
+   // SortedListP x;
+   // x.items = nullptr;
+   // x.size;
+
+
+
+//Item * Hd= head;
+    //while(Hd != 0)
+    //{cout << _size << endl;
+    //Hd = Hd-> next; }
 }
 
 /**Inserts element into sorted list in sorted position.
@@ -23,6 +34,17 @@ SortedListP::SortedListP() : size(_size){
  */
 void SortedListP::insert(int v) {
     //TODO: SortedListP insert
+Item *temp = (Item*)malloc(sizeof(v));
+    temp->value= v;
+    temp->next = NULL;
+    if (head != NULL) temp->next=head;
+        head = temp;
+
+
+//Item * Hd= head;
+  //  while(Hd != 0)
+   // {cout << _size << endl;
+   // Hd = Hd-> next; }
 }
 
 
@@ -47,6 +69,6 @@ ostream& operator<<(ostream &ostr, const SortedListP &p){
  */
 int & SortedListP::operator [](const int element){
     //TODO: SortedListP subscript operator
-    return ptr->value;
+    //return ptr ->value;
 }
 

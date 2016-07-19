@@ -3,8 +3,8 @@
 //
 
 #include "SortedListA.h"
-#include <iostream>
-#include <stdlib.h>             // EXIT_FAILURE
+//#include <iostream>
+//#include <stdlib.h>             // EXIT_FAILURE
 using namespace std;
 
 /** Constructor, creates read-only size value.
@@ -18,6 +18,11 @@ using namespace std;
  */
 SortedListA::SortedListA() : size(_size){
     // TODO: SortedListA Constructor
+   //SortedListA x;
+  // x.items = nullptr;
+   // x.size;
+
+
 }
 
 /**Inserts element into sorted list in sorted position.
@@ -27,6 +32,19 @@ SortedListA::SortedListA() : size(_size){
  */
 void SortedListA::insert(int v) {
     // TODO: SortedListA insert()
+   //int *a;
+
+   // a = (int*) malloc(sizeof(a);
+    //a*items =v;
+//temp= (int *) malloc(sizeof(int));
+   // temp *items = v;
+   // temp ->next
+
+
+//v = new  (v)
+  //  while(v != 0);
+   // { cout << _size << endl;
+   //  v-> items; }
 }
 
 
