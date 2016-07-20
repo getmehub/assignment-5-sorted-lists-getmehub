@@ -18,11 +18,10 @@ using namespace std;
  */
 SortedListA::SortedListA() : size(_size){
     // TODO: SortedListA Constructor
-   //SortedListA x;
-  // x.items = nullptr;
-   // x.size;
 
 
+   this->items= new int(size);
+    _size = size;
 }
 
 /**Inserts element into sorted list in sorted position.
@@ -32,21 +31,22 @@ SortedListA::SortedListA() : size(_size){
  */
 void SortedListA::insert(int v) {
     // TODO: SortedListA insert()
-   //int *a;
-
-   // a = (int*) malloc(sizeof(a);
-    //a*items =v;
-//temp= (int *) malloc(sizeof(int));
-   // temp *items = v;
-   // temp ->next
 
 
-//v = new  (v)
-  //  while(v != 0);
-   // { cout << _size << endl;
-   //  v-> items; }
+    // if the list is empty
+
+    int node = _size;
+        for (int i = 0; i <_size; i++){
+            if (v <items[i])
+               node =i;
+            break;
+        }
+         for (int i =size; i>=node; i--){
+             items[i]=items[i-1];
+         }
+    items [node]=v;
+    _size++;
 }
-
 
 /** Allows object to print current state into stream.
  * Prints each value in the array, separated by commas.
@@ -59,6 +59,9 @@ void SortedListA::insert(int v) {
  */
 ostream& operator<<(ostream &ostr, const SortedListA &p){
     // TODO: SortedListA stream insertion operator
+for (int i=0; i< p.size -1; i++){
+    ostr <<"SortedListA"<< "["<<p.items[i]<< ",";
+}ostr<< p.items[p.size]<< "]"<< endl;
 
     return ostr;
 }
@@ -70,7 +73,11 @@ ostream& operator<<(ostream &ostr, const SortedListA &p){
  */
 int & SortedListA::operator [](const int element){
     // TODO: SortedListA subscript operator
+if(element > size){
+    cout<< "Index out of bounds !"<< endl;
 
-    return items[element];
+}else
+{return items[element];}
+
 }
 

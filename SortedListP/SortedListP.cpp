@@ -14,17 +14,13 @@ using namespace std;
  */
 SortedListP::SortedListP() : size(_size){
     //TODO: SortedListP constructor
-    //this-> _size  = _size;
-   // SortedListP x;
-   // x.items = nullptr;
-   // x.size;
+
+   // SortedListP *head= nullptr;
+
+    this->head= new Item;
+    _size = size;
 
 
-
-//Item * Hd= head;
-    //while(Hd != 0)
-    //{cout << _size << endl;
-    //Hd = Hd-> next; }
 }
 
 /**Inserts element into sorted list in sorted position.
@@ -36,8 +32,8 @@ void SortedListP::insert(int v) {
     //TODO: SortedListP insert
 Item *temp = (Item*)malloc(sizeof(v));
     temp->value= v;
-    temp->next = NULL;
-    if (head != NULL) temp->next=head;
+    temp->next = nullptr;
+    if (head != nullptr) temp->next=head;
         head = temp;
 
 
@@ -59,6 +55,11 @@ Item *temp = (Item*)malloc(sizeof(v));
  */
 ostream& operator<<(ostream &ostr, const SortedListP &p){
     //TODO: SortedListP stream insertion operator
+
+   // for (int i=0; p.size - 1 > i; i++){
+       // ostr << "SortedListA"<< "["<< p->head[i]<< ",";
+   // }//ostr << p->head[p.size]<< "]"<< endl;
+
     return ostr;
 }
 
@@ -69,6 +70,12 @@ ostream& operator<<(ostream &ostr, const SortedListP &p){
  */
 int & SortedListP::operator [](const int element){
     //TODO: SortedListP subscript operator
-    //return ptr ->value;
+
+    if(element > size){
+        cout<< "Index out of bounds !"<< endl;
+
+    }else
+    {
+    return head ->value;}
 }
 
