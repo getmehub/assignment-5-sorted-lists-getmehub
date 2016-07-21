@@ -1,23 +1,14 @@
-language: cpp
+ Abbreviated tests for CSC 340 Summer 2016 Assignment 5
 
-sudo: false
+sudo: required
+language: cpp
+dist: trusty
+
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make && ./SortedList_tests/basic_tests/runBasicTests
 
 compiler:
-    - gcc
-    - clang
-
-
-before_script:
-    - mkdir build
-    - cd build
-    - cmake ..
-
-script: make && ./C_tests/basic_tests/runBasicCTests
-
-os:
-    - linux
-    - osx
-
-env:
-  global:
-  - LANG="en_US.UTF-8"
+  - gcc
