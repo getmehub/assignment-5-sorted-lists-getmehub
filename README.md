@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.com/csc340/assignment-5-sorted-lists-getmehub.svg?token=1xNLxHvtjRcVvNkHwXMN&branch=master)](https://travis-ci.com/csc340/assignment-5-sorted-lists-getmehub)
 
 NOTE: travis is showing error for testing cases!!
-# CSC 340 Summer 2016 
-# A5 - Assignment 5: Sorted Lists
+
+#CSC 340 sunner 2016
+A5 assignment 5 sorted list
 
 This assignment is intended to introduce :
 * C++ dynamic arrays
