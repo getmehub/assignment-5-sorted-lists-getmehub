@@ -13,14 +13,8 @@ using namespace std;
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
 SortedListP::SortedListP() : size(_size){
-    //TODO: SortedListP constructor
-
-   // SortedListP *head= nullptr;
-
-    this->head= new Item;
-    _size = size;
-
-
+    this->head= (Item *) new int(size);
+   _size =0;
 }
 
 /**Inserts element into sorted list in sorted position.
@@ -28,22 +22,20 @@ SortedListP::SortedListP() : size(_size){
  * the list remains sorted.  Updates the _size element
  * count.
  */
+
 void SortedListP::insert(int v) {
-    //TODO: SortedListP insert
-Item *temp = (Item*)malloc(sizeof(v));
-    temp->value= v;
-    temp->next = nullptr;
-    if (head != nullptr) temp->next=head;
-        head = temp;
-
-
-//Item * Hd= head;
-  //  while(Hd != 0)
-   // {cout << _size << endl;
-   // Hd = Hd-> next; }
+    int node = _size;
+    for(int i = 0; i < _size;){
+        if ( v < i)
+            node = i;
+        break;
+    }
+    for (int i =size; i>=node; i--){
+        this-> head[i]=this->head[i-1];
+    }
+    this->head->value= v;
+    _size++;
 }
-
-
 /** Allows object to print current state into stream.
  * Prints each value in the list, separated by commas.
  * Surrounds entire value with square brackets, and
@@ -53,29 +45,34 @@ Item *temp = (Item*)malloc(sizeof(v));
  * SortedListP[1, 1, 1, 2, 4]
  *
  */
-ostream& operator<<(ostream &ostr, const SortedListP &p){
-    //TODO: SortedListP stream insertion operator
+ostream& operator<<(ostream &ostr, const SortedListP &p) {
 
-   // for (int i=0; p.size - 1 > i; i++){
-       // ostr << "SortedListA"<< "["<< p->head[i]<< ",";
-   // }//ostr << p->head[p.size]<< "]"<< endl;
+    for (int i = 0; i < p.size; i++){
+        ostr << "SortedListP" << "[" << p.size << ",";
+        }
+        ostr << p.head->value << "]" << endl;
+        return ostr;
+    }
 
-    return ostr;
-}
+
 
 /** Returns value at element specified in subscript.
  *  If the subscript is out of bounds, prints error message
  *  "Index out of bounds!" and exits with a value
  *  of EXIT_FAILURE.
  */
-int & SortedListP::operator [](const int element){
-    //TODO: SortedListP subscript operator
+    int &SortedListP::operator[](const int element) {
+        //TODO: SortedListP subscript operator
 
-    if(element > size){
-        cout<< "Index out of bounds !"<< endl;
+        if (element > size)
+        {
+            cout << "Index out of bounds !" << endl;
 
-    }else
-    {
-    return head ->value;}
-}
+        } else
+            {for (int i=0; i< element;i++);}
+
+        { return head->value ; } //element];}
+    }
+
+
 

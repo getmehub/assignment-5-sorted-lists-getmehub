@@ -17,10 +17,8 @@ using namespace std;
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
 SortedListA::SortedListA() : size(_size){
-    // TODO: SortedListA Constructor
 
-
-   this->items= new int(size);
+    this->items= new int(size);
     _size = size;
 }
 
@@ -30,21 +28,17 @@ SortedListA::SortedListA() : size(_size){
  * count.
  */
 void SortedListA::insert(int v) {
-    // TODO: SortedListA insert()
-
-
     // if the list is empty
-
-    int node = _size;
-        for (int i = 0; i <_size; i++){
-            if (v <items[i])
+   int node = _size;
+       for (int i = 0; i <_size;){
+           if (v <items[i])
                node =i;
             break;
         }
          for (int i =size; i>=node; i--){
              items[i]=items[i-1];
          }
-    items [node]=v;
+   items [node]=v;
     _size++;
 }
 
@@ -58,10 +52,11 @@ void SortedListA::insert(int v) {
  *
  */
 ostream& operator<<(ostream &ostr, const SortedListA &p){
-    // TODO: SortedListA stream insertion operator
-for (int i=0; i< p.size -1; i++){
+
+for (int i=0; i< p.size; i++){
     ostr <<"SortedListA"<< "["<<p.items[i]<< ",";
-}ostr<< p.items[p.size]<< "]"<< endl;
+}
+    ostr<< p.items<< "]"<< endl;
 
     return ostr;
 }
@@ -72,12 +67,14 @@ for (int i=0; i< p.size -1; i++){
  *  of EXIT_FAILURE.
  */
 int & SortedListA::operator [](const int element){
-    // TODO: SortedListA subscript operator
+
 if(element > size){
     cout<< "Index out of bounds !"<< endl;
 
 }else
-{return items[element];}
+{for (int i=0; i< element;i++);}
+
+    {return items[element];}
 
 }
 

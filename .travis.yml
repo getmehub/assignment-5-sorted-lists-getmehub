@@ -1,14 +1,16 @@
- Abbreviated tests for CSC 340 Summer 2016 Assignment 5
+
+Abbreviated tests for CSC 340 Summer 2016 Assignment 5
 
 sudo: required
 language: cpp
 dist: trusty
 
 script:
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make && ./SortedList_tests/basic_tests/runBasicTests
 
+mkdir build
+cd build
+cmake ..
+make && ./SortedList_tests/basic_tests/runBasicTests
 compiler:
-  - gcc
+
+gcc

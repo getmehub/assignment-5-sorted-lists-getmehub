@@ -57,12 +57,15 @@ TEST(SortedListA_Test, subscript){
     EXPECT_EQ(a[3],3);
 }
 
-TEST(SortedListA_Test, death){
+TEST(SortedListA_Test, DeathTest){
     SortedListA a;
     a.insert(3);
     a.insert(1);
 
+    ::testing::FLAGS_gtest_death_test_style = "threadsafe";
+    std::cout << std::endl << "You should see Index out of bounds!: ";
     EXPECT_DEATH({ a[2]; }, "");
+    std::cout << std::endl;
 }
 
 
