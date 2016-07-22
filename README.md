@@ -17,4 +17,3 @@ implementing is the SortedListA and SortedListL classes.  SortedListA and Sorted
 Full class documentation is available in the respective header and implementation files.
 
 Note:  To exit a program with an error, use exit(EXIT_FAILURE).  EXIT_FAILURE is included from stdlib.h.
- 
