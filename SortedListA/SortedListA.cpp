@@ -20,7 +20,7 @@ using namespace std;
  */
 SortedListA::SortedListA() : size(_size){
 
-    items =new int [_size];
+    items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
     _size =0;
 }
 /**Inserts element into sorted list in sorted position. 
@@ -29,9 +29,9 @@ SortedListA::SortedListA() : size(_size){
 */
   void SortedListA::insert(int v) {
 
-    for (int i = _size-1; i>= 0; i--){
+    for (int i = _size-1; i>= 0; i--){     /// if the head contains any number then it decrease to 0.
         if (items[i] > v) {
-            items[i + 1] = items[i];
+            items[i + 1] = items[i];       /// incraese the unit by 1 and sets as head.
 
         } else {
             items[i + 1] = v;
@@ -56,7 +56,7 @@ ostream& operator<<(ostream &ostr, const SortedListA &p){ 
     for (int i=0; i< p._size-1 ; i++ ){
          ostr << p.items[i] << ",";
     }
-        ostr<< p.items[p._size-1]<<"]"<<endl;  
+        ostr<< p.items[p._size-1]<<"]"<<endl;    
         return ostr;
      }  
 /** Returns value at element specified in subscript. 

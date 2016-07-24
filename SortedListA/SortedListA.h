@@ -16,8 +16,6 @@ public:
 
     SortedListA();
     void insert(int v);
-
-
     int &operator [](int element);
     friend std::ostream& operator <<(std::ostream &, const SortedListA &);
 
