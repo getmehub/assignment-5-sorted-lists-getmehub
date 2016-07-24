@@ -3,8 +3,10 @@
 //
 
 #include "SortedListA.h"
-//#include <iostream>
-//#include <stdlib.h>             // EXIT_FAILURE
+#include <iostream>
+#include <stdlib.h>             // EXIT_FAILURE
+#include <SortedListP.h>
+
 using namespace std;
 
 /** Constructor, creates read-only size value.
@@ -18,63 +20,54 @@ using namespace std;
  */
 SortedListA::SortedListA() : size(_size){
 
-    this->items= new int(size);
-    _size = size;
+    items =new int [_size];
+    _size =0;
 }
+/**Inserts element into sorted list in sorted position. 
+ * * Inserts an element into a sorted array so that 
+ * * the array remains sorted.  Updates the _size element  * count. 
+*/
+  void SortedListA::insert(int v) {
 
-/**Inserts element into sorted list in sorted position.
- * Inserts an element into a sorted array so that
- * the array remains sorted.  Updates the _size element
- * count.
- */
-void SortedListA::insert(int v) {
-    // if the list is empty
-   int node = _size;
-       for (int i = 0; i <_size;){
-           if (v <items[i])
-               node =i;
-            break;
+    for (int i = _size-1; i>= 0; i--){
+        if (items[i] > v) {
+            items[i + 1] = items[i];
+
+        } else {
+            items[i + 1] = v;
+            _size++;
+            return;
         }
-         for (int i =size; i>=node; i--){
-             items[i]=items[i-1];
-         }
-   items [node]=v;
-    _size++;
-}
+    }
+            items[0]= v;
+           _size++;
 
-/** Allows object to print current state into stream.
- * Prints each value in the array, separated by commas.
- * Surrounds entire value with square brackets, and
- * indicates that it is a SortedListA object.
- * Note, last value does not have a comma after it.
- * For example:
- * SortedListA[1, 1, 1, 2, 4]
- *
- */
-ostream& operator<<(ostream &ostr, const SortedListA &p){
-
-for (int i=0; i< p.size; i++){
-    ostr <<"SortedListA"<< "["<<p.items[i]<< ",";
-}
-    ostr<< p.items<< "]"<< endl;
-
-    return ostr;
-}
-
-/** Returns value at element specified in subscript.
- *  If the subscript is out of bounds, prints error message
- *  "Index out of bounds!" and exits with a value
- *  of EXIT_FAILURE.
- */
-int & SortedListA::operator [](const int element){
-
-if(element > size){
-    cout<< "Index out of bounds !"<< endl;
-
-}else
-{for (int i=0; i< element;i++);}
-
-    {return items[element];}
-
-}
-
+        }
+// TODO: SortedListA insert() }   
+// /** Allows object to print current state into stream. 
+// * Prints each value in the array, separated by commas. 
+// * Surrounds entire value with square brackets, and 
+// * indicates that it is a SortedListA object. 
+// * Note, last value does not have a comma after it. 
+// * For example:  * SortedListA[1, 1, 1, 2, 4] 
+// *  */ 
+ostream& operator<<(ostream &ostr, const SortedListA &p){ 
+    ostr << "SortedListA" << "[" ; 
+    for (int i=0; i< p._size-1 ; i++ ){
+         ostr << p.items[i] << ",";
+    }
+        ostr<< p.items[p._size-1]<<"]"<<endl;  
+        return ostr;
+     }  
+/** Returns value at element specified in subscript. 
+ * *  If the subscript is out of bounds, prints error message 
+ * *  "Index out of bounds!" and exits with a value  *  of EXIT_FAILURE. 
+ * */ 
+int & SortedListA::operator [](const int element) {
+     if (element >= _size) { 
+        cout << "Index out of bounds!" << endl; 
+        EXIT_FAILURE;  
+    }
+    else {   
+            return items[element];     }
+} 

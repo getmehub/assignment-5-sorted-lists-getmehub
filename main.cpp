@@ -35,5 +35,5 @@ int main() {
     for(int i = 0; i < (*p).size ; i++)
         cout << "*p[" << i << "]=" << (*p)[i] << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }

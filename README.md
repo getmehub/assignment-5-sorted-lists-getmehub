@@ -1,6 +1,6 @@
 # CSC 340 Summer 2016 
 # A5 - Assignment 5: Sorted Lists
-##Introduction
+
 This assignment is intended to introduce you to a number of concepts in C++:
 * C++ dynamic arrays
 * C++ pointers & pointer manipulation

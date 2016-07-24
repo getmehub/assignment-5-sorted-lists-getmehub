@@ -1,6 +1,6 @@
 #include "SortedListP.h"
-//#include <iostream>
-//#include <stdlib.h>                 // EXIT_FAILURE
+#include <iostream>
+#include <stdlib.h>                 // EXIT_FAILURE
 using namespace std;
 
 /** Constructor, creates read-only size value.
@@ -13,7 +13,7 @@ using namespace std;
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
 SortedListP::SortedListP() : size(_size){
-    this->head= (Item *) new int(size);
+    this->head= nullptr;
    _size =0;
 }
 
@@ -24,18 +24,31 @@ SortedListP::SortedListP() : size(_size){
  */
 
 void SortedListP::insert(int v) {
-    int node = _size;
-    for(int i = 0; i < _size;){
-        if ( v < i)
-            node = i;
-        break;
+    Item *node = new Item();
+    node->value = v;
+    node->next = nullptr;
+
+    Item nhead;
+    nhead.next = head;
+    Item *ptr = &nhead;
+    while (ptr->next != nullptr) {
+        if (ptr->next->value > v) {
+            node->next = ptr->next;
+            ptr->next = node;
+            _size++;
+            head = nhead.next;
+            return;
+        }
+        else {
+            ptr = ptr->next;
+        }
+
     }
-    for (int i =size; i>=node; i--){
-        this-> head[i]=this->head[i-1];
-    }
-    this->head->value= v;
+    ptr->next = node;
     _size++;
+    head = nhead.next;
 }
+
 /** Allows object to print current state into stream.
  * Prints each value in the list, separated by commas.
  * Surrounds entire value with square brackets, and
@@ -47,9 +60,13 @@ void SortedListP::insert(int v) {
  */
 ostream& operator<<(ostream &ostr, const SortedListP &p) {
 
-    for (int i = 0; i < p.size; i++){
-        ostr << "SortedListP" << "[" << p.size << ",";
-        }
+        ostr << "SortedListP" << "[";
+    Item *ptr;
+    ptr=p.head;
+    while(ptr->next !=nullptr)
+    {ostr <<ptr ->value<<",";
+    ptr=ptr->next;
+    }
         ostr << p.head->value << "]" << endl;
         return ostr;
     }
@@ -62,17 +79,24 @@ ostream& operator<<(ostream &ostr, const SortedListP &p) {
  *  of EXIT_FAILURE.
  */
     int &SortedListP::operator[](const int element) {
-        //TODO: SortedListP subscript operator
+    //TODO: SortedListP subscript operator
 
-        if (element > size)
+    if (element >= this->size) {
+        cout << "Index out of bounds !" << EXIT_FAILURE << endl;
+        exit(-1);
+
+    } else {
+        Item *ptr;
+        ptr = this->head;
+        for (int i = 0; i < element; i++){
+            ptr = ptr->next;
+        }
+
         {
-            cout << "Index out of bounds !" << endl;
-
-        } else
-            {for (int i=0; i< element;i++);}
-
-        { return head->value ; } //element];}
+            return ptr->value;
+            (EXIT_SUCCESS);
+        }
     }
 
-
+}
 
