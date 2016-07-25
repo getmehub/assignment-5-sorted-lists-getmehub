@@ -82,8 +82,8 @@ ostream& operator<<(ostream &ostr, const SortedListP &p) {
     //TODO: SortedListP subscript operator
 
     if (element >= this->size) {
-        cout << "Index out of bounds !" << EXIT_FAILURE << endl;
-        exit(-1);
+        cout << "Index out of bounds !" << endl;
+        exit(EXIT_FAILURE );
 
     } else {
         Item *ptr;
