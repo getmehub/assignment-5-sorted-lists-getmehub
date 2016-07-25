@@ -19,9 +19,9 @@ using namespace std;
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
 SortedListA::SortedListA() : size(_size){
-
-    items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
     _size =0;
+    this->items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
+
 }
 /**Inserts element into sorted list in sorted position. 
  * * Inserts an element into a sorted array so that 
@@ -64,10 +64,10 @@ ostream& operator<<(ostream &ostr, const SortedListA &p){ 
  * *  "Index out of bounds!" and exits with a value  *  of EXIT_FAILURE. 
  * */ 
 int & SortedListA::operator [](const int element) {
-     if (element >= _size) { 
+     if (element >= this->_size) { 
         cout << "Index out of bounds!" << endl; 
-        EXIT_FAILURE;  
+        exit(EXIT_FAILURE);  
     }
     else {   
-            return items[element];     }
+            return this->items[element];     }
 } 
