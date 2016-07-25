@@ -1,3 +1,18 @@
+[![Build Status](https://travis-ci.com/csc340/assignment-5-sorted-lists-getmehub.svg?token=1xNLxHvtjRcVvNkHwXMN&branch=master)](https://travis-ci.com/csc340/assignment-5-sorted-lists-getmehub)
+
+Assignment 5
+- used cmake_minimum_required(VERSION 2.8)
+- Made .travis.yml file as travis was saying this file was missing.
+-still having issues for travis to test the project 5.
+
+Coding part.
+1. creating new arry _size whose initial vaue is 0.
+2. if the head contains any number then it decrease to 0.
+3. incraese the unit by 1 and sets as head.
+
+
+
+
 # CSC 340 Summer 2016 
 # A5 - Assignment 5: Sorted Lists
 ##Introduction
