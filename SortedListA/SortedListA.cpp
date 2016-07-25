@@ -18,7 +18,7 @@ using namespace std;
  *  the trick itself: http://www.cplusplus.com/forum/articles/36872/
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
-SortedListA::SortedListA() : size(_size){
+ SortedListA::SortedListA() : size(_size){
     _size =0;
     this->items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
 
@@ -29,7 +29,7 @@ SortedListA::SortedListA() : size(_size){
 */
   void SortedListA::insert(int v) {
 
-    for (int i = _size-1; i>= 0; i--){     /// if the head contains any number then it decrease to 0.
+    for (int i = _size - 1; i >= 0; i--){     /// if the head contains any number then it decrease to 0.
         if (items[i] > v) {
             items[i + 1] = items[i];       /// incraese the unit by 1 and sets as head.
 
@@ -39,10 +39,10 @@ SortedListA::SortedListA() : size(_size){
             return;
         }
     }
-            items[0]= v;
-           _size++;
+    items[0] = v;
+    _size++;
 
-        }
+}
 // TODO: SortedListA insert() }   
 // /** Allows object to print current state into stream. 
 // * Prints each value in the array, separated by commas. 
@@ -51,14 +51,15 @@ SortedListA::SortedListA() : size(_size){
 // * Note, last value does not have a comma after it. 
 // * For example:  * SortedListA[1, 1, 1, 2, 4] 
 // *  */ 
-ostream& operator<<(ostream &ostr, const SortedListA &p){ 
-    ostr << "SortedListA" << "[" ; 
-    for (int i=0; i< p._size-1 ; i++ ){
+ostream& operator<<(ostream &ostr, const SortedListA &p) {
+     
+    ostr << "SortedListA" << "["; 
+    for (int i = 0; i < p._size - 1; i++){
          ostr << p.items[i] << ",";
     }
-        ostr<< p.items[p._size-1]<<"]"<<endl;    
-        return ostr;
-     }  
+    ostr << p.items[p._size - 1] << "]" << endl;  
+    return ostr;
+}
 /** Returns value at element specified in subscript. 
  * *  If the subscript is out of bounds, prints error message 
  * *  "Index out of bounds!" and exits with a value  *  of EXIT_FAILURE. 
