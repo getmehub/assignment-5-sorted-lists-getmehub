@@ -14,5 +14,3 @@ add_subdirectory(SortedListP)
 add_subdirectory(SortedList_tests)
 
 target_link_libraries(A5_run SortedListA SortedListP)
-
-
