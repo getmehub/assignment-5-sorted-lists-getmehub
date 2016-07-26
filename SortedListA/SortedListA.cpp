@@ -19,8 +19,8 @@ using namespace std;
  *  why this works: http://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
  */
  SortedListA::SortedListA() : size(_size){
-    _size =0;
-    items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
+    this->_size =0;
+   this->items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
 
 }
 /**Inserts element into sorted list in sorted position. 
@@ -29,18 +29,18 @@ using namespace std;
 */
   void SortedListA::insert(int v) {
 
-    for (int i = _size - 1; i >= 0; i--){     /// if the head contains any number then it decrease to 0.
-        if (items[i] > v) {
-            items[i + 1] = items[i];       /// incraese the unit by 1 and sets as head.
+    for (int i = this->_size - 1; i >= 0; i--){     /// if the head contains any number then it decrease to 0.
+        if (this->items[i] > v) {
+            this->items[i + 1] = items[i];       /// incraese the unit by 1 and sets as head.
 
         } else {
-            items[i + 1] = v;
-            _size++;
+            this->items[i + 1] = v;
+            this->_size++;
             return;
         }
     }
-    items[0] = v;
-    _size++;
+    this->items[0] = v;
+   this->_size++;
 
 }
 // TODO: SortedListA insert() }   
