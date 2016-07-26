@@ -20,7 +20,7 @@ using namespace std;
  */
  SortedListA::SortedListA() : size(_size){
     _size =0;
-    this->items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
+    items =new int [_size];             /// creating new arry _size whose initial vaue is 0.
 
 }
 /**Inserts element into sorted list in sorted position. 
