@@ -67,5 +67,3 @@ TEST(SortedListA_Test, DeathTest){
     EXPECT_DEATH({ a[2]; }, "");
     std::cout << std::endl;
 }
-
-
